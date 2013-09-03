@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<plugin name="NetstatPlugin"
+        displayName="Netstat Plugin"
+        version="1.0"
+        package="uk.co.c2b2.rhq.plugin.netstat"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="urn:xmlns:rhq-plugin">
+
+
+   <service name="Netstat Plugin Service"
+           discovery="NetstatPluginDiscoveryComponent"
+           class="NetstatPluginServerComponent"
+           description="TCP Connections Statistics."
+           singleton="true">
+
+       <runs-inside>
+           <parent-resource-type name="Linux"    plugin="Platforms"/>
+           <parent-resource-type name="Windows"  plugin="Platforms"/>
+           <parent-resource-type name="Solaris"  plugin="Platforms"/>
+           <parent-resource-type name="HP-UX"    plugin="Platforms"/>
+           <parent-resource-type name="AIX"      plugin="Platforms"/>
+           <parent-resource-type name="FreeBSD"  plugin="Platforms"/>
+           <parent-resource-type name="Mac OS X" plugin="Platforms"/>
+           <parent-resource-type name="Java"     plugin="Platforms"/>
+       </runs-inside>
+
+
+      <metric property="TcpEstablished"
+              displayName="Established TCP Connections"
+              description="Number of established TCP connections"
+              defaultOn="true"
+              defaultInterval="300000"
+              displayType="summary"
+              />
+
+       <metric property="TcpSynSent"
+               displayName="TCP SynSent"
+               description="TCP SynSent"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpSynRecv"
+               displayName="Tcp Syn Received"
+               description="Tcp Syn Received"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpFinWait1"
+               displayName="Tcp FinWait1"
+               description="Tcp FinWait1"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+
+       <metric property="TcpFinWait2"
+               displayName="Tcp FinWait2"
+               description="Tcp FinWait2"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpTimeWait"
+               displayName="Tcp Time Wait"
+               description="TcpTimeWait"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpClose"
+               displayName="Tcp Close"
+               description="Tcp Close"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpCloseWait"
+               displayName="Tcp Close Wait"
+               description="Tcp Close Wait"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpLastAck"
+               displayName="Tcp Last Ack"
+               description="Tcp Last Ack"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpListen"
+               displayName="Tcp Listen"
+               description="Tcp Listen"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpClosing"
+               displayName="Tcp Closing"
+               description="Tcp Closing"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpIdle"
+               displayName="Tcp Idle"
+               description="Tcp Idle"
+               defaultOn="true"
+               defaultInterval="300000"/>
+
+       <metric property="TcpBound"
+               displayName="Tcp Bound"
+               description="Tcp Bound"
+               defaultInterval="300000"/>
+
+   </service>
+</plugin>
