@@ -67,60 +67,11 @@ public class NetstatPluginServerComponent implements ResourceComponent, Measurem
         for (MeasurementScheduleRequest request : requests) {
             String name = request.getName();
             try {
-                Number value = extractMetric(networkStats, name);
+                Number value = networkStats.getByName(name);
                 report.addData(new MeasurementDataNumeric(request, value.doubleValue()));
             } catch (Exception e) {
                 log.error("Failed to obtain measurement [" + name + "]. Cause: " + e);
             }
-        }
-    }
-
-    private static enum CONNECTION_STATE {
-        TcpEstablished,
-        TcpSynSent,
-        TcpSynRecv,
-        TcpFinWait1,
-        TcpFinWait2,
-        TcpTimeWait,
-        TcpClose,
-        TcpCloseWait,
-        TcpLastAck,
-        TcpListen,
-        TcpIdle,
-        TcpBound,
-        TcpClosing
-    }
-
-    private int extractMetric(NetworkStats networkStats, String name) throws Exception {
-        switch (CONNECTION_STATE.valueOf(name)) {
-            case TcpEstablished:
-                return networkStats.getTcpEstablished();
-            case TcpSynSent:
-                return networkStats.getTcpSynSent();
-            case TcpSynRecv:
-                return networkStats.getTcpSynRecv();
-            case TcpFinWait1:
-                return networkStats.getTcpFinWait1();
-            case TcpFinWait2:
-                return networkStats.getTcpFinWait2();
-            case TcpTimeWait:
-                return networkStats.getTcpTimeWait();
-            case TcpClose:
-                return networkStats.getTcpClose();
-            case TcpCloseWait:
-                return networkStats.getTcpCloseWait();
-            case TcpLastAck:
-                return networkStats.getTcpLastAck();
-            case TcpListen:
-                return networkStats.getTcpListen();
-            case TcpIdle:
-                return networkStats.getTcpIdle();
-            case TcpBound:
-                return networkStats.getTcpBound();
-            case TcpClosing:
-                return networkStats.getTcpClosing();
-            default:
-                throw new Exception("Unknown metric: "+name);
         }
     }
 }
