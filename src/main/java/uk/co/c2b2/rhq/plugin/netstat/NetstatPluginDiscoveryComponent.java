@@ -28,13 +28,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class NetstatPluginDiscoveryComponent implements ResourceDiscoveryComponent {
-    private final Log log = LogFactory.getLog(NetstatPluginDiscoveryComponent.class);
-
 
     @Override
     public Set<DiscoveredResourceDetails> discoverResources(ResourceDiscoveryContext context) {
-        log.info("Discovering my custom plugin's resources");
-
         HashSet<DiscoveredResourceDetails> set = new HashSet<DiscoveredResourceDetails>();
 
         String key = "TcpNetstatKey";
@@ -46,7 +42,6 @@ public class NetstatPluginDiscoveryComponent implements ResourceDiscoveryCompone
             version, description, null, null);
 
         set.add(resource);
-
         return set;
     }
 }

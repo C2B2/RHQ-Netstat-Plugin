@@ -56,10 +56,12 @@ public class NetstatPluginServerComponent implements ResourceComponent, Measurem
     public void stop() {
     }
 
+    @Override
     public AvailabilityType getAvailability() {
         return resourceContext.getSystemInformation().isNative() ? AvailabilityType.UP : AvailabilityType.DOWN;
     }
 
+    @Override
     public void getValues(MeasurementReport report, Set<MeasurementScheduleRequest> requests) {
         SystemInfo systemInfo = resourceContext.getSystemInformation();
         NetworkStats networkStats = systemInfo.getNetworkStats(null, -1);
