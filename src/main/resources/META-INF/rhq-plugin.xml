@@ -27,7 +27,7 @@
 
 
       <metric property="tcpEstablished"
-              displayName="Established TCP Connections"
+              displayName="State ESTABLISHED"
               description="Number of established TCP connections"
               defaultOn="true"
               defaultInterval="300000"
@@ -35,86 +35,73 @@
               />
 
        <metric property="tcpSynSent"
-               displayName="TCP SynSent"
-               description="TCP SynSent"
+               displayName="State SYN_SENT"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpSynRecv"
-               displayName="Tcp Syn Received"
-               description="Tcp Syn Received"
+               displayName="State SYN_RECV"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpFinWait1"
-               displayName="Tcp FinWait1"
-               description="Tcp FinWait1"
+               displayName="State FIN_WAIT1"
                defaultOn="true"
                defaultInterval="300000"/>
 
-
        <metric property="tcpFinWait2"
-               displayName="Tcp FinWait2"
-               description="Tcp FinWait2"
+               displayName="State FIN_WAIT2"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpTimeWait"
-               displayName="Tcp Time Wait"
-               description="TcpTimeWait"
+               displayName="State TIME_WAIT"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpClose"
-               displayName="Tcp Close"
-               description="Tcp Close"
+               displayName="State CLOSE"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpCloseWait"
-               displayName="Tcp Close Wait"
-               description="Tcp Close Wait"
+               displayName="State CLOSE_WAIT"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpLastAck"
-               displayName="Tcp Last Ack"
-               description="Tcp Last Ack"
+               displayName="State LAST_ACK"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpListen"
-               displayName="Tcp Listen"
-               description="Tcp Listen"
+               displayName="State LISTEN"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpClosing"
-               displayName="Tcp Closing"
-               description="Tcp Closing"
+               displayName="State CLOSING"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpIdle"
-               displayName="Tcp Idle"
-               description="Tcp Idle"
+               displayName="State IDLE"
                defaultOn="true"
                defaultInterval="300000"/>
 
        <metric property="tcpBound"
-               displayName="Tcp Bound"
-               description="Tcp Bound"
+               displayName="State BOUND"
                defaultInterval="300000"/>
 
        <metric property="tcpInboundTotal"
-               displayName="Tcp Inbound Total"
-               description="tcp Inbound Total"
-               defaultInterval="300000"/>
+               displayName="TCP Inbound Connections"
+               defaultInterval="300000"
+               displayType="summary"/>
 
        <metric property="tcpOutboundTotal"
-               displayName="Tcp Outbound Total"
-               description="Tcp Outbound Total"
-               defaultInterval="300000"/>
+               displayName="TCP Outbound Connections"
+               defaultInterval="300000"
+               displayType="summary"/>
 
    </service>
 </plugin>
